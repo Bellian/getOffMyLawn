@@ -1,0 +1,39 @@
+$c1: #026e29;
+$c2: darken($c1, 2%);
+
+.garden {
+    @include box(1000px, 1000px);
+    background: $c1;
+
+    background: linear-gradient(to left,
+    $c1 0%,$c1 10%
+    ,$c2 11%,$c2 20%
+    ,$c1 21%,$c1 30%
+    ,$c2 31%,$c2 40%
+    ,$c1 41%,$c1 50%
+    ,$c2 51%,$c2 60%
+    ,$c1 61%,$c1 70%
+    ,$c2 71%,$c2 80%
+    ,$c1 81%,$c1 90%
+    ,$c2 91%,$c2 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    border-left: 10px solid darken($c1, 10%);
+    border-right: 10px solid darken($c1, 10%);
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-50%) translateY(-000px);
+}
+.grass {
+    @include triangle(10px, 20px, rgb(9, 59, 9));
+    transform: translateZ(10px) rotateX(-90deg);
+    transform-style: preserve-3d;
+
+    &::before {
+        content: '';
+        @include triangle(8px, 16px, rgb(24, 126, 24));
+        display:block;
+        position:absolute;
+        top: 14px;
+        transform: translateX(-50%) translateY(-50%) translateZ(0.1px);
+    }
+}

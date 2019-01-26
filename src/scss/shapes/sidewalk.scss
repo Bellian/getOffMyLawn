@@ -1,0 +1,22 @@
+.sidewalk {
+    @include box(5000px, 200px);
+    top: -603px;
+    background: #6d6d6d;
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-50%) translateY(-000px);
+    &::after, &::before {
+        content: '';
+        display: block;
+        width: 145px;
+        height: 20px;
+        top: 0px;
+        position: absolute;
+        background: #888888;
+        left: 2400px;
+        box-shadow: 150px 0px #888888, 300px 0px #888888, 450px 0px #888888, 600px 0px #888888, 750px 0px #888888, -150px 0px #888888, -300px 0px #888888, -450px 0px #888888, -600px 0px #888888, -750px 0px #888888, -900px 0px #888888;
+    }
+    &::after {
+        left: 2450px;
+        top: 180px;
+    }
+}

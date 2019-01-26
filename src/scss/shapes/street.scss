@@ -1,0 +1,29 @@
+.street {
+    @include box(5000px, 1000px);
+    top: -1200px;
+    background: #2c2c2c;
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-50%) translateY(-000px);
+    &::before {
+        content: '';
+        display: block;
+        width: 5000px;
+        height: 20px;
+        background-color: white;
+        top: 50px;
+        position: absolute;
+        box-shadow: 0px 900px white;
+    }
+    &::after {
+        content: '';
+        display: block;
+        width: 200px;
+        height: 35px;
+        top: 500px;
+        position: absolute;
+        background: white;
+        left: 2500px;
+        
+        box-shadow: 400px 0px white, 800px 0px white, -400px 0px white, -800px 0px white;
+    }
+}
