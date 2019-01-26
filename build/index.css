@@ -1,0 +1,331 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+.ggj-game {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  background: #000; }
+  .ggj-game .base {
+    transform-style: preserve-3d;
+    perspective: 0;
+    position: relative;
+    overflow: hidden;
+    width: 1024px;
+    height: 1024px;
+    background-color: #025d23;
+    top: 50%;
+    left: 50%; }
+  .ggj-game.init .base {
+    perspective: 1024px; }
+  .ggj-game .camera {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(0px) rotateX(50deg) rotateY(0deg) translateY(3000px);
+    transform-style: preserve-3d;
+    transition: 1s; }
+  .ggj-game.init .camera {
+    transform: translateY(0px) rotateX(50deg) rotateY(0deg) translateY(0px); }
+  .ggj-game .scene {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    border-spacing: 0px; }
+  .ggj-game .box {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 200px;
+    height: 100px; }
+  .ggj-game .square {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 100px;
+    height: 100px; }
+  .ggj-game .circle {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; }
+  .ggj-game .elipse {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    border-radius: 50%; }
+  .ggj-game .triangle {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+    border-bottom-width: 100px;
+    border-bottom-color: red;
+    border-bottom-style: solid;
+    border-left-width: 50px;
+    border-left-color: transparent;
+    border-left-style: solid;
+    border-right-width: 50px;
+    border-right-color: transparent;
+    border-right-style: solid; }
+  .ggj-game .transform {
+    transform-style: preserve-3d; }
+  .ggj-game .human {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transform: translateZ(1px);
+    background: rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d; }
+    .ggj-game .human .torso {
+      top: 50%;
+      left: 50%;
+      background: transparent;
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      border-top: 80px solid white;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 70px;
+      transform: translateX(-50%) translateY(-50%) translateZ(100px) rotateX(-90deg);
+      box-sizing: border-box; }
+    .ggj-game .human .head {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transform: translateX(-50%) translateY(-50%) translateZ(152px) rotateX(-90deg);
+      background: #ddcba8;
+      border: 2px solid #978a71;
+      box-sizing: border-box; }
+    .ggj-game .human .feet {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      transform: translateX(-50%) translateY(-50%) translateY(-1px) translateZ(30px) rotateX(-90deg);
+      background: #4a5572;
+      border: 2px solid #1f2431;
+      box-sizing: border-box; }
+      .ggj-game .human .feet::before {
+        content: '';
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: 50px;
+        width: 0;
+        position: absolute;
+        border: 2px solid #1f2431; }
+      .ggj-game .human .feet::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -12px;
+        border-radius: 50% 50% 0 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) translateX(-10px);
+        height: 20px;
+        width: 20px;
+        background-color: #171a24;
+        box-shadow: 20px 0px #171a24; }
+    .ggj-game .human .hitbox {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      width: 80px;
+      height: 180px;
+      transform: translateX(-50%) translateY(-50%) translateY(1px) translateZ(90px) rotateX(-90deg); }
+  .ggj-game .sidewalk {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 5000px;
+    height: 200px;
+    top: -603px;
+    background: #6d6d6d;
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-50%) translateY(0px); }
+    .ggj-game .sidewalk::after, .ggj-game .sidewalk::before {
+      content: '';
+      display: block;
+      width: 145px;
+      height: 20px;
+      top: 0px;
+      position: absolute;
+      background: #888888;
+      left: 2400px;
+      box-shadow: 150px 0px #888888, 300px 0px #888888, 450px 0px #888888, 600px 0px #888888, 750px 0px #888888, -150px 0px #888888, -300px 0px #888888, -450px 0px #888888, -600px 0px #888888, -750px 0px #888888, -900px 0px #888888; }
+    .ggj-game .sidewalk::after {
+      left: 2450px;
+      top: 180px; }
+  .ggj-game .street {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 5000px;
+    height: 1000px;
+    top: -1200px;
+    background: #2c2c2c;
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-50%) translateY(0px); }
+    .ggj-game .street::before {
+      content: '';
+      display: block;
+      width: 5000px;
+      height: 20px;
+      background-color: white;
+      top: 50px;
+      position: absolute;
+      box-shadow: 0px 900px white; }
+    .ggj-game .street::after {
+      content: '';
+      display: block;
+      width: 200px;
+      height: 35px;
+      top: 500px;
+      position: absolute;
+      background: white;
+      left: 2500px;
+      box-shadow: 400px 0px white, 800px 0px white, -400px 0px white, -800px 0px white; }
+  .ggj-game .garden {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    background: #026e29;
+    background: linear-gradient(to left, #026e29 0%, #026e29 10%, #026425 11%, #026425 20%, #026e29 21%, #026e29 30%, #026425 31%, #026425 40%, #026e29 41%, #026e29 50%, #026425 51%, #026425 60%, #026e29 61%, #026e29 70%, #026425 71%, #026425 80%, #026e29 81%, #026e29 90%, #026425 91%, #026425 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    border-left: 10px solid #013c16;
+    border-right: 10px solid #013c16;
+    transform-style: preserve-3d;
+    transform: translateX(-50%) translateY(-50%) translateY(0px); }
+  .ggj-game .grass {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+    border-bottom-width: 20px;
+    border-bottom-color: #093b09;
+    border-bottom-style: solid;
+    border-left-width: 5px;
+    border-left-color: transparent;
+    border-left-style: solid;
+    border-right-width: 5px;
+    border-right-color: transparent;
+    border-right-style: solid;
+    transform: translateZ(10px) rotateX(-90deg);
+    transform-style: preserve-3d; }
+    .ggj-game .grass::before {
+      content: '';
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      background: transparent;
+      border-bottom-width: 16px;
+      border-bottom-color: #187e18;
+      border-bottom-style: solid;
+      border-left-width: 4px;
+      border-left-color: transparent;
+      border-left-style: solid;
+      border-right-width: 4px;
+      border-right-color: transparent;
+      border-right-style: solid;
+      display: block;
+      position: absolute;
+      top: 14px;
+      transform: translateX(-50%) translateY(-50%) translateZ(0.1px); }
+  .ggj-game .start {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: sans-serif;
+    background: rgba(204, 204, 204, 0.637);
+    padding: 1em;
+    border: 0.1em solid rgba(0, 0, 0, 0.637);
+    text-align: center;
+    transition: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
+    display: none;
+    font-size: 2em; }
+  .ggj-game.active .start, .ggj-game.lost .start {
+    padding: 0px;
+    border-width: 0px;
+    font-size: 0em; }
+  .ggj-game .dummy {
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s;
+    background: white;
+    display: flex;
+    flex-direction: column; }
+    .ggj-game .dummy iframe {
+      border: none;
+      width: 100%;
+      height: 100%; }
+  .ggj-game.gui .dummy {
+    opacity: 0; }
+  .ggj-game .lostScreen {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: sans-serif;
+    background: rgba(204, 204, 204, 0.637);
+    padding: 1em;
+    border: 0.1em solid rgba(0, 0, 0, 0.637);
+    text-align: center;
+    transition: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
+    display: none;
+    padding: 0px;
+    border-width: 0px;
+    font-size: 0em; }
+    .ggj-game .lostScreen .score {
+      color: red; }
+  .ggj-game.lost .lostScreen {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: sans-serif;
+    background: rgba(204, 204, 204, 0.637);
+    padding: 1em;
+    border: 0.1em solid rgba(0, 0, 0, 0.637);
+    text-align: center;
+    transition: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
+    display: none;
+    font-size: 2em; }
+  .ggj-game.gui .start, .ggj-game.gui .lostScreen {
+    display: block; }
+
+/*# sourceMappingURL=index.css.map */

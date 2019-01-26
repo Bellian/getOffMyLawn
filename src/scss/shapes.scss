@@ -1,0 +1,70 @@
+
+@mixin shape() {
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+}
+
+@mixin box($width, $height) {
+    @include shape();
+    width:$width;
+    height:$height;
+}
+
+@mixin square($size) {
+    @include box($size,$size);
+}
+
+@mixin circle($diameter) {
+    @include square($diameter);
+    border-radius: 50%;
+}
+
+@mixin elipse($width, $height) {
+    @include box($width, $height);
+    border-radius: 50%;
+}
+
+@mixin triangle($width, $height, $color) {
+    @include box(0px, 0px);
+
+    background: transparent;
+
+    border-bottom-width: $height;
+    border-bottom-color: $color;
+    border-bottom-style: solid;
+
+    border-left-width: $width/2;
+    border-left-color: transparent;
+    border-left-style: solid;
+
+    border-right-width: $width/2;
+    border-right-color: transparent;
+    border-right-style: solid;
+}
+
+.box {
+    @include box(200px, 100px);
+}
+.square {
+    @include square(100px);
+}
+.circle {
+    @include circle(100px);
+}
+.elipse {
+    @include elipse(200px, 100px);
+}
+.triangle {
+    @include triangle(100px, 100px, red);
+}
+
+.transform {
+    transform-style: preserve-3d;
+}
+
+@import "shapes/human";
+@import "shapes/sidewalk";
+@import "shapes/street";
+@import "shapes/garden";
+
+

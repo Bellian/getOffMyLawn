@@ -1,0 +1,73 @@
+.human {
+    @include circle(50px);
+    transform: translateZ(1px);
+    background: rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+
+    .torso {
+        top: 50%;
+        left: 50%;
+
+        background: transparent;
+        @include shape();
+        border-top: 80px solid white;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        height: 0;
+        width: 70px;
+
+        transform: translateX(-50%) translateY(-50%) translateZ(100px) rotateX(-90deg);
+        //background: white;
+        //border: 2px solid rgba(0,0,0,0.5);
+        box-sizing: border-box;
+    }
+    .head {
+        top: 50%;
+        left: 50%;
+        @include circle(40px);
+        transform: translateX(-50%) translateY(-50%) translateZ(152px) rotateX(-90deg);
+        background: rgb(221, 203, 168);
+        border: 2px solid rgb(151, 138, 113);
+        box-sizing: border-box;
+    }
+    .feet {
+        top: 50%;
+        left: 50%;
+        @include box(40px, 60px);
+        transform: translateX(-50%) translateY(-50%) translateY(-1px) translateZ(30px) rotateX(-90deg);
+        background: rgb(74, 85, 114);
+        border: 2px solid rgb(31, 36, 49);
+        box-sizing: border-box;
+
+        &::before {
+            content: '';
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 50px;
+            width: 0;
+            position: absolute;
+            border: 2px solid rgb(31, 36, 49);
+        }
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -12px;
+            border-radius: 50% 50% 0 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%) translateX(-10px);
+            height: 20px;
+            width: 20px;
+            background-color: rgb(23, 26, 36);
+            box-shadow: 20px 0px rgb(23, 26, 36);
+        }
+    }
+    .hitbox {
+        top: 50%;
+        left: 50%;
+        @include box(80px, 180px);
+        transform: translateX(-50%) translateY(-50%) translateY(1px) translateZ(90px) rotateX(-90deg);
+    }
+}

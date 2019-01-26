@@ -1,0 +1,35 @@
+.base {
+    transform-style: preserve-3d;
+    perspective: 0;
+    position: relative;
+    overflow: hidden;
+    width: 1024px;
+    height: 1024px;
+    background-color: rgb(2, 93, 35);
+    top: 50%;
+    left: 50%;
+}
+&.init .base {
+    perspective: 1024px;
+}
+
+.camera {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(0px) rotateX(50deg) rotateY(0deg) translateY(3000px);
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+&.init .camera {
+    transform: translateY(0px) rotateX(50deg) rotateY(0deg) translateY(0px);
+}
+
+.scene {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    border-spacing: 0px;
+}

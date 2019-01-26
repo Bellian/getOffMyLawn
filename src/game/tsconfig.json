@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "umd",
+        "esModuleInterop": false,
+        "strict": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "rootDir": ".",
+        "downlevelIteration": true,
+
+        "types": [
+            "@types/sharedworker"
+        ],
+
+        "lib": [
+            "es2018",
+            "dom"
+        ]
+    }
+}
+    
