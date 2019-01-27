@@ -113,8 +113,10 @@
             hitbox.classList.add('hitbox');
             _this.BaseElement.appendChild(hitbox);
             hitbox.addEventListener('mouseenter', function () {
-                _this.Hit = true;
-                _this.Game.HitEnemies++;
+                if (!_this.Hit) {
+                    _this.Hit = true;
+                    _this.Game.HitEnemies++;
+                }
             });
             _this.StartPosition = start;
             _this.DestinationPosition = end;

@@ -33,8 +33,10 @@ export class Human extends SceneComponents {
         this.BaseElement.appendChild(hitbox);
 
         hitbox.addEventListener('mouseenter', () => {
-            this.Hit = true;
-            this.Game.HitEnemies++;
+            if (!this.Hit) {
+                this.Hit = true;
+                this.Game.HitEnemies++;
+            }
         });
 
         this.StartPosition = start;
