@@ -32,13 +32,7 @@ export class Human extends SceneComponents {
         hitbox.classList.add('hitbox');
         this.BaseElement.appendChild(hitbox);
 
-        let lasthit = 0;
         hitbox.addEventListener('mouseenter', () => {
-            if (lasthit + 1000 > Date.now()) {
-                return;
-            }
-            lasthit = Date.now();
-            console.log(this);
             this.Hit = true;
             this.Game.HitEnemies++;
         });

@@ -112,13 +112,7 @@
             var hitbox = document.createElement('div');
             hitbox.classList.add('hitbox');
             _this.BaseElement.appendChild(hitbox);
-            var lasthit = 0;
             hitbox.addEventListener('mouseenter', function () {
-                if (lasthit + 1000 > Date.now()) {
-                    return;
-                }
-                lasthit = Date.now();
-                console.log(_this);
                 _this.Hit = true;
                 _this.Game.HitEnemies++;
             });
@@ -255,9 +249,10 @@
             var initialized = false;
             var init = function (e) {
                 e.stopPropagation();
-                if (initialized) {
-                    return;
-                }
+                e.preventDefault();
+                _this.BaseElement.removeEventListener('click', init);
+                _this.BaseElement.removeEventListener('mousewheel', init);
+                _this.BaseElement.removeEventListener('touchend', init);
                 initialized = true;
                 _this.createCamera();
                 _this.createScene();
@@ -305,7 +300,6 @@
             var size = Math.min(rect.height, rect.width);
             var scale = size / 1024;
             this.BaseElement.style.transform = "translateX(-50%) translateY(-50%) scale(" + scale + ")";
-            console.log('resize', (rect.height > rect.width) ? '2vw' : '2vh');
             this.Root.style.fontSize = (rect.height > rect.width) ? '2vw' : '2vh';
         };
         Game.prototype.createCamera = function () {
