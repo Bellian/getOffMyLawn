@@ -24,7 +24,11 @@ export class Game {
         let initialized = false;
         const  init = (e: any) => {
             e.stopPropagation();
-            if (initialized) { return; }
+            e.preventDefault();
+
+            this.BaseElement.removeEventListener('click', init);
+            this.BaseElement.removeEventListener('mousewheel', init);
+            this.BaseElement.removeEventListener('touchend', init);
             initialized = true;
 
             this.createCamera();
@@ -78,8 +82,6 @@ export class Game {
         const size = Math.min(rect.height, rect.width);
         const scale = size / 1024;
         this.BaseElement.style.transform = `translateX(-50%) translateY(-50%) scale(${scale})`;
-
-        console.log('resize', (rect.height > rect.width) ? '2vw' : '2vh');
         this.Root.style.fontSize = (rect.height > rect.width) ? '2vw' : '2vh';
     }
 
